@@ -70,4 +70,6 @@
   max-height: 19px;
 
   align-self: center;
+  
+  cursor: pointer;
 }

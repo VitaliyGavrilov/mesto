@@ -11,6 +11,11 @@
 
   margin: 0;
   padding: 0;
+
+  display: none;
+}
+.pop-up_opened {
+  display: block;
 }
 
 .pop-up__overlay {
@@ -44,7 +49,10 @@
 
   background-color: white;
   color: black;
-  z-index: 2;
+  z-index: 1;
+
+  justify-content: center;
+  align-items: center;
 }
 @media screen  and (max-width: 530px) {
   .form {
@@ -124,6 +132,8 @@
   letter-spacing: 0em;
   text-align: center;
 
+  cursor: pointer;
+
 }
 
 .close-button {
@@ -141,9 +151,6 @@
   
   height: 32px;
   width: 32px;
-}
 
-.close-button__img {
-  margin: 0;
-  padding: 0;
+  cursor: pointer;
 }
