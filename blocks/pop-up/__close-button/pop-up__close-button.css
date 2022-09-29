@@ -9,7 +9,7 @@
   border: 0;
   
   background-color: black;
-  background-image: url(/img/Close\ Icon.svg);
+  background-image: url('../../../img/Close\ Icon.svg');
   background-size: cover;    
     
   height: 32px;
