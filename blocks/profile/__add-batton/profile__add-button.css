@@ -18,8 +18,8 @@
   
   box-sizing: border-box;
   cursor: pointer;
-  transition: opacity 100ms ease-in-out;  
-    
+  transition: opacity 100ms ease-in-out;
+
   justify-self: flex-end;
 }
 @media screen and (max-width: 768px) {
@@ -31,7 +31,7 @@
     margin-top: 36px;
   }
 }
-  
+
 .profile__add-button:hover {
   opacity: 0.6;
 }
