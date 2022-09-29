@@ -1,0 +1,8 @@
+.element__like-img {
+  max-width: 22px;
+  max-height: 19px;
+  
+  align-self: center;
+    
+  cursor: pointer;
+}
