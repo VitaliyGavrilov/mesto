@@ -3,21 +3,21 @@
   font-weight: 500;
   line-height: 48px;
   letter-spacing: 0em;
-  
   margin: 22px 0 0 0;
   padding: 0;
-  
+  max-width: 400px;
   text-overflow: ellipsis;
   white-space: nowrap;
-  overflow: hidden;  
+  overflow: hidden;
 }
-@media screen and (max-width: 768px) {
+
+@media screen and (max-width: 864px) {
   .profile__name {
     font-size: 27px;
     font-weight: 500;
     line-height: 33px;
     letter-spacing: 0em;
-  
+    max-width: 210px;
     margin: 0;
   }
 }
