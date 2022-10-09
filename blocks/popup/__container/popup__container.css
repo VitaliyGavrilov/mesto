@@ -1,8 +1,8 @@
-.popup__block {
+.popup__container {
   display: flex;
   flex-direction: column;
   margin: 0;
-  padding: 0 auto;
+  padding: 0;
   width: 33.59375%;
   border-radius: 10px;
   background-color: white;
@@ -12,7 +12,7 @@
 }
 
 @media screen  and (max-width: 768px) {
-  .popup__block {
+  .popup__container {
     width: 88.125%;
   }
 }

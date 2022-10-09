@@ -1,4 +1,4 @@
-.element__like-img {
+.element__like-button {
   width: 22px;
   height: 19px;
   align-self: center;
@@ -11,6 +11,6 @@
   margin: 0;
 }
 
-.element__like-img:hover {
+.element__like-button:hover {
   opacity: 0.5;
 }
