@@ -1,8 +1,10 @@
 .page {
+  position: relative;
   background: black;
   color: white;
   border: 0;
   min-width: 320px;
+  min-height: 100vh;
   font-family: 'Inter', 'arial', sans-serif;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
