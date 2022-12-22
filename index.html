@@ -31,57 +31,15 @@
       </section>
 
       <section class="element">
-
-        <div class="element__container">
-          <img class="element__img" src="img/karachaevsk.png" alt="Карачаевск">
-          <div class="element__block">
-            <h2 class="element__name">Карачаевск</h2>
-            <button class="element__like-button" type="button" aria-label="Кнопка лайка"></button>
-          </div>
-        </div>
-        <div class="element__container">
-          <img class="element__img" src="img/elbrus.png" alt="Эльбрус">
-          <div class="element__block">
-            <h2 class="element__name">Гора Эльбрус</h2>
-            <button class="element__like-button" type="button" aria-label="Кнопка лайка"></button>
-          </div>
-        </div>
-        <div class="element__container">
-          <img class="element__img" src="img/dombay.png" alt="Домбай">
-          <div class="element__block">
-            <h2 class="element__name">Домбай</h2>
-            <button class="element__like-button" type="button" aria-label="Кнопка лайка"></button>
-          </div>
-        </div>
-        <div class="element__container">
-          <img class="element__img" src="img/elbrus.png" alt="Эльбрус">
-          <div class="element__block">
-            <h2 class="element__name">Гора Эльбрус</h2>
-            <button class="element__like-button" type="button" aria-label="Кнопка лайка"></button>
-          </div>
-        </div>
-        <div class="element__container">
-          <img class="element__img" src="img/elbrus.png" alt="Домбай">
-          <div class="element__block">
-            <h2 class="element__name">Домбай</h2>
-            <button class="element__like-button" type="button" aria-label="Кнопка лайка"></button>
-          </div>
-        </div>
-        <div class="element__container">
-          <img class="element__img" src="img/karachaevsk.png" alt="Карачаевск">
-          <div class="element__block">
-            <h2 class="element__name">Карачаевск</h2>
-            <button class="element__like-button" type="button" aria-label="Кнопка лайка"></button>
-          </div>
-        </div>
+<!-- сюда пойдет клон template элемента  -->
       </section>
     </main>
 
     <footer class="footer">
       <p class="footer__text">&copy; 2020 Mesto Russia</p>
     </footer>
-
-    <div class="popup">
+<!-- попап редактирования профиля -->
+    <div class="popup popup-profile">
       <div class="popup__container">
         <h2 class="popup__title">Редактировать профиль</h2>
         <form class="popup__form" name="edit-form">
@@ -92,6 +50,37 @@
         <button class="popup__close-button" type="button" aria-label="Кнопка закрытия popup"></button>
       </div>
     </div>
+<!-- попап добавления карточки -->
+    <div class="popup popup-card">
+      <div class="popup__container">
+        <h2 class="popup__title">Новое место</h2>
+        <form class="popup__form" name="add-form">
+          <input class="popup__input popup__input_card-name" type="text" name="card-name" placeholder="Название" autocomplete="off" required>
+          <input class="popup__input popup__input_img-link" type="text" name="img-link" placeholder="Сылка на картинку" autocomplete="off" required>
+          <button class="popup__save-button" type="submit" aria-label="Кнопка сохранения данных">Создать</button>
+        </form>
+        <button class="popup__close-button" type="button" aria-label="Кнопка закрытия popup"></button>
+      </div>
+    </div>
+<!-- попап просмотра фото -->
+    <div class="popup popup-img">
+      <div class="popup__img-container">
+        <img class="popup__img" src="#" alt="">
+        <figcaption class="popup__figcaption"></figcaption>
+        <button class="popup__close-button" type="button" ></button>
+      </div>
+    </div>
+<!-- template-элемент -->
+    <template class ="template-el">
+      <div class="element__container">
+        <button class="element__delete-button"></button>
+        <img class="element__img" src="#" alt=" ">
+        <div class="element__block">
+          <h2 class="element__name"></h2>
+          <button class="element__like-button" type="button" aria-label="Кнопка лайка"></button>
+        </div>
+      </div>
+    </template>
 
   </div>
   <script src="script/script.js"></script>

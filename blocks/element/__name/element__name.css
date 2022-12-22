@@ -5,4 +5,8 @@
   letter-spacing: 0em;
   margin: 0;
   padding: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 210px;
 }
