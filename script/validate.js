@@ -5,7 +5,6 @@ const validationConfig = {
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__save-button',
   inactiveButtonClass: 'popup__save-button_disabled',
-  inputErrorClass: 'popup__input_type_error',
   errorClass: 'popup__input-error_visible'
 };
 //---Функции
@@ -15,7 +14,6 @@ function hideInputError(formElement, inputElement, config) {
 
   errorElement.classList.remove(config.errorClass);
   errorElement.textContent = '';
-  inputElement.classList.remove(config.inputErrorClass);
 };
 //--Функция при не валидности
 function showInputError(formElement, inputElement, config) {
@@ -23,7 +21,6 @@ function showInputError(formElement, inputElement, config) {
 
   errorElement.classList.add(config.errorClass);
   errorElement.textContent = inputElement.validationMessage;
-  inputElement.classList.add(config.inputErrorClass);
 };
 //--Функция проверяет валидность
 function checkInputValidity(formElement, inputElement, config) {
