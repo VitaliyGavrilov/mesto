@@ -142,3 +142,19 @@ popupAddForm.addEventListener('submit', submitAddHandlerForm);
 popupImgCloseButton.addEventListener('click', () => {
   closePopup(popupImg);
 });
+//--Слушатель для esc
+document.addEventListener('keydown', function (evt) {
+  if (evt.key == 'Escape') {
+    const popupEl = document.querySelector('.popup_opened');
+    closePopup(popupEl);
+  };
+});
+//--Слушатель для оверлея
+document.addEventListener('click', function (evt) {
+  if (evt.target.classList.contains('popup')) {
+    const popupEl = document.querySelector('.popup_opened');
+    closePopup(popupEl);
+  }
+});
+
+
