@@ -1,3 +1,4 @@
+import { openPopup, closePopup, closePopupOnEsc, closePopupOnOverlay } from "./utils.js";
 export default class Card {
   constructor (data, templateSelector) {// принимает данные и селектор её template-элемента;
     // данные
@@ -30,15 +31,13 @@ export default class Card {
   _setEventListeners() {
     this._elementImg.addEventListener('click', () => {// открытие попапа фото при нажатии на карточку
       this._handleOpenPopup();
+      openPopup(this._popupImg);
     });
     this._popupImgCloseButton.addEventListener('click', () => {// закрытие на крестик
       this._handleClosePopup();
+      closePopup(this._popupImg);
     });
-    this._popupImg.addEventListener('click', (evt) => {// закрытие на оверлей
-      if (evt.target.classList.contains('popup')) {
-        this._handleClosePopup();
-      };
-    });
+    this._popupImg.addEventListener('click', closePopupOnOverlay);// закрытие на оверлей
     this._buttonDelete.addEventListener('click', () => {// удаление карточки на корзину
       this._handleDeleteCard();
     });
@@ -47,26 +46,15 @@ export default class Card {
     });
   }
   // приватные методы для каждого обработчика:
-  _handleOpenPopup() {// открытие попапа фото
-    this._popupImg.classList.add('popup_opened');
+  _handleOpenPopup() {// берет данные при открытии попапа фото
     this._popupImgContent.src = this._link;
     this._popupImgContent.alt = this._name;
     this._popupImgFigcaption.textContent = this._name;
-    // слушатель на esc
-    document.addEventListener('keydown', (evt) => {this._closePopupOnEsc(evt)});
   }
-  _handleClosePopup() {// закрытие попапа фото
-    this._popupImg.classList.remove('popup_opened');
+  _handleClosePopup() {// при закрытии попапа фото
     this._popupImgContent.src = '';
     this._popupImgContent.alt = '';
     this._popupImgFigcaption.textContent = '';
-    // убирает слушатель на esc
-    document.removeEventListener('keydown', (evt) => {this._closePopupOnEsc(evt)});
-  }
-  _closePopupOnEsc(evt) {// закрытие на Esc
-    if (evt.key === 'Escape') {
-      this._handleClosePopup();
-    };
   }
   _handleDeleteCard() {// удаление карточек
     this._element.remove();

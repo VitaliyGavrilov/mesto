@@ -1,8 +1,9 @@
 //---Данные и переменные
 //--Импорты
-import { validationConfig, initialCards } from "./constants.js";// кофиг для валидации и данные карточек
+import { validationConfig, initialCards } from "./constants.js";// переменные, конфиг для валидации и данные карточек
 import Card from "./Card.js";// всеь функционал для карточек и попапа фото
 import FormValidator from "./FormValidator.js";// валидация
+import { openPopup, closePopup, closePopupOnEsc, closePopupOnOverlay } from "./utils.js";// функции открытия и зактия попапов
 //--Получаем кнопки отрытия попапов
 const buttonOpenEditProfilePopup = document.querySelector('.profile__edit-button');
 const buttonOpenAddCardPopup = document.querySelector('.profile__add-button');
@@ -22,39 +23,6 @@ const popupAddForm = popupAddCard.querySelector('.popup__form');
 const popupAddInputCardName = popupAddCard.querySelector('.popup__input_card-name');
 const popupAddInputLinkImg = popupAddCard.querySelector('.popup__input_img-link');
 //---Функции
-//--Создаем общую функцию открытия попапов
-const openPopup = function (popupEl) {
-  popupEl.classList.add('popup_opened');
-  document.addEventListener('keydown', closePopupOnEsc);
-  // при каждом открытии попапа будет проводиться проверка валидации
-  validationPopup (popupEl);
-};
-//--Создаем общую функцию валидации попапов
-function validationPopup (popupEl) {
-  const popupForm = popupEl.querySelector('.popup__form');
-  const validPopup = new FormValidator(validationConfig, popupForm);
-  validPopup.enableValidation();
-  validPopup.resetValidation();
-}
-//--Создаем общую функцию закрытия попапов
-const closePopup = function (popupEl) {
-  document.removeEventListener('keydown', closePopupOnEsc);
-  popupEl.classList.remove('popup_opened');
-};
-//--Функция закрытия попапов при нажатии на Esc
-function closePopupOnEsc (evt) {
-  if (evt.key === 'Escape') {
-    const popup = document.querySelector('.popup_opened');
-    closePopup(popup);
-  };
-};
-//--Функция закрытия попапов при нажатии на Overlay
-function closePopupOnOverlay (evt) {
-  if (evt.target.classList.contains('popup')) {
-    const popup = document.querySelector('.popup_opened');
-    closePopup(popup);
-  };
-};
 //--Функции для edit popup
 //-Создаем фунцию сохрания данных в edit попап
 const handleProfileFormSubmit = function (evt) {
@@ -91,10 +59,18 @@ initialCards.forEach((item) => {
   // Добавляем в DOM
   document.querySelector('.element').append(cardElement);
 });
+//---Запуск валидации
+//--для edit popup
+const editProfileValidation = new FormValidator(validationConfig, popupEditForm);
+editProfileValidation.enableValidation();
+//--для add popup
+const addCardValidation = new FormValidator(validationConfig, popupAddForm);
+addCardValidation.enableValidation();
 //---Слушатели
 //--Слушатели для editPopup
 buttonOpenEditProfilePopup.addEventListener('click', () => {
   initProfileForm();
+  editProfileValidation.resetValidation();
   openPopup(popupEditProfile);
 });
 popupEditCloseButton.addEventListener('click', () => {
@@ -104,7 +80,7 @@ popupEditForm.addEventListener('submit', handleProfileFormSubmit);
 //--Слушатели для addPopup
 buttonOpenAddCardPopup.addEventListener('click', () => {
   openPopup(popupAddCard);
-  blockSaveButton(popupAddCard);
+  addCardValidation.resetValidation();
 });
 popupAddCloseButton.addEventListener('click', () => {
   closePopup(popupAddCard);
@@ -112,6 +88,6 @@ popupAddCloseButton.addEventListener('click', () => {
 });
 popupAddForm.addEventListener('submit', handleCardFormSubmit);
 //-Слушатель для закрытия add попапа при нажатии на оверлей
-popupAddCard.addEventListener('click', closePopupOnOverlay);
+popupAddCard.addEventListener('mousedown', closePopupOnOverlay);
 //-Слушатель для закрытия edit попапа при нажатии на оверлей
-popupEditProfile.addEventListener('click', closePopupOnOverlay);
+popupEditProfile.addEventListener('mousedown', closePopupOnOverlay);
