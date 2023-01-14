@@ -23,8 +23,8 @@ export const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
   },
   {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+    name: 'Свердловская область',
+    link: 'https://кадастроваякарта.онлайн/images/blog/113_4.jpg'
   },
   {
     name: 'Байкал',
