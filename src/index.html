@@ -48,7 +48,7 @@
                    type="text" name="name" id="name" placeholder="Имя" autocomplete="off" minlength="2" maxlength="40" required>
             <span class="popup__input-error" id="name-error"></span>
             <input class="popup__input popup__input_data_profession"
-                   type="text" name="profesion" id="profesion" placeholder="Вид деятельности" autocomplete="off" minlength="2" maxlength="200" required>
+                   type="text" name="profession" id="profesion" placeholder="Вид деятельности" autocomplete="off" minlength="2" maxlength="200" required>
             <span class="popup__input-error" id="profesion-error"></span>
           </fieldset>
           <button class="popup__save-button" type="submit" aria-label="Кнопка сохранения данных">Сохранить</button>
@@ -63,10 +63,10 @@
         <form class="popup__form" name="add-form" novalidate>
           <fieldset class="popup__fieldset">
             <input class="popup__input popup__input_card-name"
-                   type="text" name="card-name" id="card-name" placeholder="Название" autocomplete="off" minlength="2" maxlength="30" required>
+                   type="text" name="name" id="card-name" placeholder="Название" autocomplete="off" minlength="2" maxlength="30" required>
             <span class="popup__input-error" id="card-name-error"></span>
             <input class="popup__input popup__input_img-link"
-                   type="url" name="link-img" id="link-img" placeholder="Сылка на картинку" autocomplete="off" minlength="2" required>
+                   type="url" name="link" id="link-img" placeholder="Сылка на картинку" autocomplete="off" minlength="2" required>
             <span class="popup__input-error" id="link-img-error"></span>
           </fieldset>
           <button class="popup__save-button" type="submit" aria-label="Кнопка сохранения данных">Создать</button>
@@ -96,11 +96,14 @@
 
   </div>
 
-  <script type="module" src="script/constants.js"></script>
-  <script type="module" src="script/utils.js"></script>
-  <script type="module" src="script/Card.js"></script>
-  <script type="module" src="script/FormValidator.js"></script>
-  <script type="module" src="script/index.js"></script>
+  <script type="module" src="components/constants.js"></script>
+  <script type="module" src="components/Card.js"></script>
+  <script type="module" src="components/Section.js"></script>
+  <script type="module" src="components/Popup.js"></script>
+  <script type="module" src="components/PopupWithImage.js"></script>
+  <script type="module" src="components/UserInfo.js"></script>
+  <script type="module" src="components/FormValidator.js"></script>
+  <script type="module" src="pages/index.js"></script>
 
 </body>
 </html>

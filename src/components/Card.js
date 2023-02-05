@@ -1,7 +1,8 @@
-import { openPopup, closePopup, closePopupOnEsc, closePopupOnOverlay } from "./utils.js";
 export default class Card {
-  constructor (data, templateSelector) {// принимает данные и селектор её template-элемента;
+  // принимает данные, селектор её template-элемента и функцию для отктия попапа фото;
+  constructor (data, templateSelector, handleCardClick) {
     // данные
+    this._data = data;
     this._name = data.name;
     this._link = data.link;
     // template элемент
@@ -11,11 +12,8 @@ export default class Card {
     this._buttonDelete = this._element.querySelector('.element__delete-button');
     this._elementImg = this._element.querySelector('.element__img');
     this._buttonLike = this._element.querySelector('.element__like-button');
-    // элементы img попапа
-    this._popupImg = document.querySelector('.popup-img');
-    this._popupImgContent = this._popupImg.querySelector('.popup__img');
-    this._popupImgFigcaption = this._popupImg.querySelector('.popup__figcaption');
-    this._popupImgCloseButton = this._popupImg.querySelector('.popup__close-button');
+    // функция для открытия попапа фото
+    this._handleCardClick = handleCardClick;
   }
   // приватный метод, который работает с разметкой
   _getTemplate() {
@@ -29,32 +27,15 @@ export default class Card {
   }
   // приватный метод, который устанавливает слушатели событий;
   _setEventListeners() {
-    this._elementImg.addEventListener('click', () => {// открытие попапа фото при нажатии на карточку
-      this._handleOpenPopup();
-      openPopup(this._popupImg);
+    this._elementImg.addEventListener('click', () => {// попап фото при нажатии на фото карточки
+      this._handleCardClick();
     });
-    this._popupImgCloseButton.addEventListener('click', () => {// закрытие на крестик
-      this._handleClosePopup();
-      closePopup(this._popupImg);
-    });
-    this._popupImg.addEventListener('click', closePopupOnOverlay);// закрытие на оверлей
     this._buttonDelete.addEventListener('click', () => {// удаление карточки на корзину
       this._handleDeleteCard();
     });
     this._buttonLike.addEventListener('click', () => {// лайк
       this._handleLikeButton();
     });
-  }
-  // приватные методы для каждого обработчика:
-  _handleOpenPopup() {// берет данные при открытии попапа фото
-    this._popupImgContent.src = this._link;
-    this._popupImgContent.alt = this._name;
-    this._popupImgFigcaption.textContent = this._name;
-  }
-  _handleClosePopup() {// при закрытии попапа фото
-    this._popupImgContent.src = '';
-    this._popupImgContent.alt = '';
-    this._popupImgFigcaption.textContent = '';
   }
   _handleDeleteCard() {// удаление карточек
     this._element.remove();
