@@ -7,7 +7,7 @@ export const validationConfig = {
   inactiveButtonClass: 'popup__save-button_disabled',
   errorClass: 'popup__input-error_visible'
 };
-//-данные карточек
+//-данные для карточек
 export const initialCards = [
   {
     name: 'Архыз',
@@ -36,17 +36,20 @@ export const initialCards = [
 ];
 //-Селекторы
 //секция с карточками
-export const cardListSelector = document.querySelector('.element');
+export const cardListSelector = '.element';
 //имя и профессия профиля
-export const profileName = document.querySelector('.profile__name');
-export const profileProfession = document.querySelector('.profile__profession');
+export const profileNameSelector = '.profile__name';
+export const profileProfessionSelector = '.profile__profession';
 //попапы
-export const popupEditProfileSelector = document.querySelector('.popup-profile');
-export const popupAddCardSelector = document.querySelector('.popup-card');
-export const popupImg = document.querySelector('.popup-img');
+export const popupEditProfileSelector = '.popup-profile';
+export const popupAddCardSelector = '.popup-card';
+export const popupImgSelector = '.popup-img';
+//template элементы
+export const cardTemplateSelector = '.template-el';
+//-Дум элементы
 //формы попапов
-export const popupEditForm = popupEditProfileSelector.querySelector('.popup__form');
-export const popupAddForm = popupAddCardSelector.querySelector('.popup__form');
+export const popupEditForm = document.querySelector('.popup__form_edit-profile');
+export const popupAddForm = document.querySelector('.popup__form_add-card');
 //кнопки отрытия попапов
 export const buttonOpenEditProfilePopup = document.querySelector('.profile__edit-button');
 export const buttonOpenAddCardPopup = document.querySelector('.profile__add-button');

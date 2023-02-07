@@ -1,12 +1,12 @@
 import Popup from "./Popup.js";
 
 export default class PopupWithForm extends Popup {
-  constructor({ popup, handleSubmit }) {//Кроме селектора попапа принимает в конструктор колбэк сабмита формы.
-    super (popup);
-    this._form = this._popup.querySelector('.popup__form');//селектор формы
-    this._submitButtton = this._form.querySelector('.popup__save-button');//селектор кнопки сабмита
+  constructor({ popupSelector, handleSubmit }) {//Кроме селектора попапа принимает в конструктор колбэк сабмита формы.
+    super (popupSelector);
+    this._form = this._popup.querySelector('.popup__form');// форма
+    this._submitButtton = this._form.querySelector('.popup__save-button');//кнопка сабмита
     //массив инпутов
-    this._inputList = Array.from(popup.querySelectorAll('.popup__input'));
+    this._inputList = Array.from(this._form.querySelectorAll('.popup__input'));
     //колбэк сабмита формы
     this._handleSubmit = handleSubmit;
   }

@@ -1,15 +1,16 @@
 //---Импорты
 import './index.css'; //--импорт главного файла стилей
-//--импорты перемененых
+//--импорты констант
 import {
   validationConfig,
   initialCards,
   cardListSelector,
-  profileName,
-  profileProfession,
+  profileNameSelector,
+  profileProfessionSelector,
   popupEditProfileSelector,
   popupAddCardSelector,
-  popupImg,
+  popupImgSelector,
+  cardTemplateSelector,
   popupEditForm,
   popupAddForm,
   buttonOpenEditProfilePopup,
@@ -25,7 +26,7 @@ import FormValidator from "../components/FormValidator.js";//класс для �
 //---Функции
 //--создание карточки(функция создает карточку и возвращает ее)
 function createCard (el) {
-  const card = new Card(el, '.template-el', () => {
+  const card = new Card(el, cardTemplateSelector, () => {
     popupWithImg.open(el);
   });
   const cardEl = card.generateCard();
@@ -33,41 +34,33 @@ function createCard (el) {
 };
 //---Вызываем классы и описываем их взаимодествие
 //--Информация профиля
-const userInfo = new UserInfo({ name: profileName, profession: profileProfession });
+const userInfo = new UserInfo({ nameSelector: profileNameSelector, professionSelector: profileProfessionSelector });
 //--popupImg (попап фото)
-const popupWithImg = new PopupWithImage(popupImg);
+const popupWithImg = new PopupWithImage(popupImgSelector);
 //--popupEditProfile (попап изменения данных профиля)
 const popupEditProfile = new PopupWithForm({
-  popup: popupEditProfileSelector,
+  popupSelector: popupEditProfileSelector,
   handleSubmit: (dataForms) => {
     userInfo.setUserInfo(dataForms);
   }
 });
 // --popupAddCard (попап добавления карточки)
 const popupAddCard = new PopupWithForm({
-  popup: popupAddCardSelector,
+  popupSelector: popupAddCardSelector,
   handleSubmit: (dataForms) => {
-    const cardItem = new Section({//создаем карточку на основе введенных данных
-      items: [dataForms],
-      renderer: (el) => {
-        const newCard = createCard(el);
-        cardItem.addItem(newCard);
-      }
-    }, cardListSelector);
-    //-Отрисовываем созданную карточку
-    cardItem.rendererElements();
+    const newCard = createCard(dataForms);
+    cardList.addItem(newCard);
   }
 });
-//--Перебираем массив с данными карточек
-//-Создаем карточки на основе массива
+//--Создаем секцию с карточками
 const cardList = new Section ({
-  items: initialCards,
-  renderer: (el) => {
+  items: initialCards,//перебираем массив с данными карточек
+  renderer: (el) => {//создаем карточки на основе массива
     const newCard = createCard(el);
     cardList.addItem(newCard);
   }
 }, cardListSelector);
-//-Отрисовываем созданные карточки
+//---Отрисовываем карточки созданные перебором данных и попапом
 cardList.rendererElements();
 //---Запуск валидации
 //--для edit popup
