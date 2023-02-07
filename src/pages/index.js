@@ -1,4 +1,5 @@
 //---Импорты
+import './index.css'; //--импорт главного файла стилей
 //--импорты перемененых
 import {
   validationConfig,
@@ -62,7 +63,7 @@ const popupAddCard = new PopupWithForm({
 const cardList = new Section ({
   items: initialCards,
   renderer: (el) => {
-    const newCard = createCard(el, Card);
+    const newCard = createCard(el);
     cardList.addItem(newCard);
   }
 }, cardListSelector);

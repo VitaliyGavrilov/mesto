@@ -4,21 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>mesto</title>
-  <link rel="stylesheet" href="pages/index.css">
+  <!-- <link rel="stylesheet" href="pages/index.css"> -->
 </head>
 <body>
 
   <div class="page">
 
     <header class="header">
-      <img class="header__logo" src="img/Vector.svg" alt="Логотип">
+      <img class="header__logo" src="<%=require('./img/Vector.svg')%>" alt="Логотип">
     </header>
 
     <main class="content">
 
       <section class="profile">
         <div class="profile__info">
-          <img class="profile__avatar" src="img/image.png" alt="Аватар">
+          <img class="profile__avatar" src="<%=require('./img/image.png')%>" alt="Аватар">
           <div class="profile__card">
             <div class="profile__no-wrap">
               <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -96,14 +96,14 @@
 
   </div>
 
-  <script type="module" src="components/constants.js"></script>
+  <!-- <script type="module" src="components/constants.js"></script>
   <script type="module" src="components/Card.js"></script>
   <script type="module" src="components/Section.js"></script>
   <script type="module" src="components/Popup.js"></script>
   <script type="module" src="components/PopupWithImage.js"></script>
   <script type="module" src="components/UserInfo.js"></script>
   <script type="module" src="components/FormValidator.js"></script>
-  <script type="module" src="pages/index.js"></script>
+  <script type="module" src="pages/index.js"></script> -->
 
 </body>
 </html>
