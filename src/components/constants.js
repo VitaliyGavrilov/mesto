@@ -37,19 +37,24 @@ export const initialCards = [
 //-Селекторы
 //секция с карточками
 export const cardListSelector = '.element';
-//имя и профессия профиля
+//данные профиля
 export const profileNameSelector = '.profile__name';
 export const profileProfessionSelector = '.profile__profession';
+export const profileAvatarSelector = '.profile__avatar';
 //попапы
 export const popupEditProfileSelector = '.popup-profile';
 export const popupAddCardSelector = '.popup-card';
 export const popupImgSelector = '.popup-img';
+export const popupEditAvatarSelector = '.popup-avatar';
+export const popupDeleteCardSelector = '.popup-delete-card';
 //template элементы
 export const cardTemplateSelector = '.template-el';
 //-Дум элементы
 //формы попапов
 export const popupEditForm = document.querySelector('.popup__form_edit-profile');
 export const popupAddForm = document.querySelector('.popup__form_add-card');
+export const popupEditAvatarForm = document.querySelector('.popup__form_edit-avatar');
 //кнопки отрытия попапов
 export const buttonOpenEditProfilePopup = document.querySelector('.profile__edit-button');
 export const buttonOpenAddCardPopup = document.querySelector('.profile__add-button');
+export const buttonOpenEditAvatarPopup = document.querySelector('.profile__avatar');

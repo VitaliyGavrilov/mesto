@@ -18,7 +18,7 @@
 
       <section class="profile">
         <div class="profile__info">
-          <img class="profile__avatar" src="<%=require('./img/image.png')%>" alt="Аватар">
+          <img class="profile__avatar" src="#" alt="Аватар" aria-label="Открыть попап редактирования аватара">
           <div class="profile__card">
             <div class="profile__no-wrap">
               <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -56,6 +56,21 @@
         <button class="popup__close-button" type="button" aria-label="Кнопка закрытия popup"></button>
       </div>
     </div>
+    <!-- попап редактирования аватара пользователя -->
+    <div class="popup popup-avatar">
+      <div class="popup__container">
+        <h2 class="popup__title">Обновить аватар</h2>
+        <form class="popup__form popup__form_edit-avatar" name="avatar-form" novalidate>
+          <fieldset class="popup__fieldset">
+            <input class="popup__input popup__input_link_avatar"
+                   type="url" name="avatar" id="avatar" placeholder="Сылка на аватар" autocomplete="off" minlength="2" required>
+            <span class="popup__input-error" id="avatar-error"></span>
+          </fieldset>
+          <button class="popup__save-button" type="submit" aria-label="Кнопка сохранения данных">Сохранить</button>
+        </form>
+        <button class="popup__close-button" type="button" aria-label="Кнопка закрытия popup"></button>
+      </div>
+    </div>
 <!-- попап добавления карточки -->
     <div class="popup popup-card">
       <div class="popup__container">
@@ -74,6 +89,17 @@
         <button class="popup__close-button" type="button" aria-label="Кнопка закрытия popup"></button>
       </div>
     </div>
+
+  <!-- попап удаления карточки -->
+    <div class="popup popup-delete-card">
+      <div class="popup__container">
+        <h2 class="popup__title">Вы уверены?</h2>
+        <button class="popup__save-button" type="button" aria-label="Кнопка потверждения удаления карточки">Да</button>
+        <button class="popup__close-button" type="button" aria-label="Кнопка закрытия popup"></button>
+      </div>
+    </div>
+
+
 <!-- попап просмотра фото -->
     <div class="popup popup-img">
       <div class="popup__img-container">
@@ -90,6 +116,7 @@
         <div class="element__block">
           <h2 class="element__name"></h2>
           <button class="element__like-button" type="button" aria-label="Кнопка лайка"></button>
+          <span class="card__likes-number"></span>
         </div>
       </div>
     </template>
