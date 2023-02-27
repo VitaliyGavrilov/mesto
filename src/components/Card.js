@@ -64,6 +64,7 @@ export default class Card {
   // удаление карточки с страницы, вызывается при потверждении удаления карточки
   removeCardEl() {
     this._element.remove();
+    this._element = null;
   }
   // обновляем лайки, при нажатии на кнопу лайка
   updateDataLikes(newData) {

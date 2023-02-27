@@ -30,7 +30,6 @@ export default class PopupWithForm extends Popup {
     this._form.addEventListener('submit', (evt) => {//слушатель для сабмита
       evt.preventDefault();
       this._handleSubmit(this._getInputValues());
-      this.close();
     });
   }
   // закрывает попап и очищает форму
