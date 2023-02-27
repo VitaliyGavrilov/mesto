@@ -3,7 +3,6 @@ import './index.css'; //--импорт главного файла стилей
 //--импорты констант
 import {
   validationConfig,
-  // initialCards,
   cardListSelector,
   profileNameSelector,
   profileProfessionSelector,
@@ -96,8 +95,6 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
   .finally(() => {})
 
 let userId;
-
-
 //--Информация профиля
 const userInfo = new UserInfo({ nameSelector: profileNameSelector, professionSelector: profileProfessionSelector, avatarSelector: profileAvatarSelector });
 //--popupImg (попап фото)

@@ -18,7 +18,7 @@ export default class Card {
     this._buttonDelete = this._element.querySelector('.element__delete-button');
     this._cardImg = this._element.querySelector('.element__img');
     this._buttonLike = this._element.querySelector('.element__like-button');
-    this._quantityLikes = this._element.querySelector('.card__likes-number');
+    this._quantityLikes = this._element.querySelector('.element__likes-number');
     // функция для открытия попапа фото
     this._handleCardClick = handleCardClick;
     // функция для откртия попапа удаления карточки

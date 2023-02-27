@@ -18,13 +18,16 @@
 
       <section class="profile">
         <div class="profile__info">
-          <img class="profile__avatar" src="#" alt="Аватар" aria-label="Открыть попап редактирования аватара">
+          <div class="profile__avatar-block">
+            <img class="profile__avatar" src="#" alt="Аватар" aria-label="Открыть попап редактирования аватара">
+            <button type="button" class="profile__edit-avatar"></button>
+          </div>
           <div class="profile__card">
             <div class="profile__no-wrap">
-              <h1 class="profile__name">Жак-Ив Кусто</h1>
+              <h1 class="profile__name"></h1>
               <button class="profile__edit-button" type="button" aria-label="Кнопка редактирования профиля"></button>
             </div>
-            <p class="profile__profession">Исследователь океана</p>
+            <p class="profile__profession"></p>
           </div>
         </div>
         <button type="button" class="profile__add-button" aria-label="Кнопка добавления фотографии"></button>
@@ -115,8 +118,10 @@
         <img class="element__img" src="#" alt=" ">
         <div class="element__block">
           <h2 class="element__name"></h2>
-          <button class="element__like-button" type="button" aria-label="Кнопка лайка"></button>
-          <span class="card__likes-number"></span>
+          <div class ="element__like-block">
+            <button class="element__like-button" type="button" aria-label="Кнопка лайка"></button>
+            <span class="element__likes-number"></span>
+          </div>
         </div>
       </div>
     </template>
